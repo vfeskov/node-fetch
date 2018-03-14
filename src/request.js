@@ -183,10 +183,10 @@ export function getNodeRequestOptions(request) {
 	const parsedURL = request[INTERNALS].parsedURL;
 	const headers = new Headers(request[INTERNALS].headers);
 
-	// fetch step 1.3
-	if (!headers.has('Accept')) {
-		headers.set('Accept', '*/*');
-	}
+	// // fetch step 1.3
+	// if (!headers.has('Accept')) {
+	// 	headers.set('Accept', '*/*');
+	// }
 
 	// Basic fetch
 	if (!parsedURL.protocol || !parsedURL.hostname) {
@@ -220,15 +220,15 @@ export function getNodeRequestOptions(request) {
 		headers.set('Content-Length', contentLengthValue);
 	}
 
-	// HTTP-network-or-cache fetch step 2.11
-	if (!headers.has('User-Agent')) {
-		headers.set('User-Agent', 'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)');
-	}
+	// // HTTP-network-or-cache fetch step 2.11
+	// if (!headers.has('User-Agent')) {
+	// 	headers.set('User-Agent', 'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)');
+	// }
 
-	// HTTP-network-or-cache fetch step 2.15
-	if (request.compress && !headers.has('Accept-Encoding')) {
-		headers.set('Accept-Encoding', 'gzip,deflate');
-	}
+	// // HTTP-network-or-cache fetch step 2.15
+	// if (request.compress && !headers.has('Accept-Encoding')) {
+	// 	headers.set('Accept-Encoding', 'gzip,deflate');
+	// }
 
 	let agent = request.agent;
 	if (typeof agent === 'function') {
